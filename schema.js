@@ -5,7 +5,7 @@ const schema = buildSchema(`
         id:ID
         name:String! 
         age:Int! 
-        status:Status  
+        status:Status 
         experience:Int! 
         title:String!
     }
@@ -25,7 +25,8 @@ const schema = buildSchema(`
     }
 
     type Query {
-        getEmployee(id: ID): Employee
+        getEmployee(id:ID): Employee,
+        getAllEmployees: [Employee]
     }
 
     type Mutation {
