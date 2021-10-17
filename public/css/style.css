@@ -130,7 +130,7 @@ header {
 	box-shadow: 2px 2px 8px rgb(235, 233, 233);
 	word-break: break-all;
 	margin: 4rem 0 2rem;
-	min-height: 40rem;
+	min-height: 50rem;
 	justify-content: space-around;
 	border-radius: 10px;
 	transition: border 0.2s linear;
@@ -145,4 +145,62 @@ header {
 
 main {
 	padding-bottom: 5rem;
+}
+
+.btn--edit {
+	padding: 1.6rem 8rem;
+	align-self: center;
+	background-color: var(--primary-color);
+	color: #fff;
+	font-size: 3rem;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	transition: transform 0.3s linear;
+}
+.btn--edit:hover {
+	transform: translateY(-3px);
+}
+form {
+	width: 50%;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 40rem;
+	justify-content: space-around;
+	margin: 0 auto;
+	margin-top: 5rem;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	box-shadow: 3px 3px 18px rgb(236, 236, 236);
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.form-group label {
+	font-size: 1.8rem;
+	margin-bottom: 14px;
+}
+.form-group input {
+	height: 4.3rem;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.form-group button {
+	padding: 1.8rem;
+	border: none;
+	margin-top: 3rem;
+	font-size: 1.8rem;
+	background-color: var(--primary-color);
+	border-radius: 10px;
+	color: #fff;
+	cursor: pointer;
 }

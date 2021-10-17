@@ -23,8 +23,6 @@ const findPerson = async (id) => {
 	return response;
 };
 
-// findPerson(1); //execute find one person
-
 const getAllPersons = async () => {
 	const query = `query GetAllPersonsQuery {
         getAllPersons {
@@ -76,7 +74,8 @@ const getAllPersons = async () => {
                             <h2 class="result__title"><span class="highlight">Gender:</span> ${person.gender}</h2>
                             <h2 class="result__title"><span class="highlight">Email:</span> ${person.email} </h2>
                             <h2 class="result__title"><span class="highlight">City:</span> ${person.city}</h2>
-                            <h2 class="result__title"><span class="highlight">Country:</span> ${person.country}</h2>          
+                            <h2 class="result__title"><span class="highlight">Country:</span> ${person.country}</h2>    
+                            <a class="btn--edit" href="/edit/${person.id}">Edit ${person.first_name}</a>      
                         `;
 					content.append(card);
 				});
@@ -85,3 +84,28 @@ const getAllPersons = async () => {
 };
 
 getAllPersons();
+
+const editPerson = async (formInput) => {
+	const query = `mutation EditPersonMutation($input:EditPersonInput) {
+        editPerson(input:$input){
+          id
+          first_name
+          last_name
+          email
+          gender
+          city
+          country     
+        }
+    }`;
+
+	await axios(url, {
+		query,
+		variables: {
+			input: formInput,
+		},
+	}).then((resp) => {
+		const { editPerson } = resp.data.data;
+		let firstName = document.querySelector(".firstName");
+		firstName.value = editPerson.first_name;
+	});
+};
